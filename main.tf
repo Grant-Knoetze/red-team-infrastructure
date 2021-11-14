@@ -20,12 +20,12 @@ provider "aws" {
 
 variable "phishing_zone_id" {
     type = string
-    default = ""
+    default = "Z07139992DT172UMZ5NJG"
 }
 
 variable "c2_zone_id" {
     type = string
-    default = ""
+    default = "Z07139992DT172UMZ5NJG"
 }
 
 #Creating our main VPC and subnets
@@ -63,7 +63,7 @@ module "phishing" {
     subnet_id = module.redteam_network.redteam_subnet
 }
 
-/*
+
 #Setup Our Phishing Domain
 resource "aws_route53_record" "phishing_evilginx" {
   allow_overwrite = true
@@ -105,7 +105,7 @@ resource "aws_route53_record" "C2" {
     module.c2_redirector.redirector_public_ip,
   ]
 }
-*/
+
 data "aws_region" "current" {}
 
 data "aws_caller_identity" "current" {}
